@@ -9,19 +9,6 @@
   <meta name="renderer" content="webkit">
   <title>love</title>
 
-  <!--Baidu Tongji-->
-  <script>
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
 
   <link rel="stylesheet" href="/css/style.css">
 
@@ -44,22 +31,34 @@
     <main class="main">
       <section class="date">
         <div class="date">
-          <h2>赵妍东 and 陈思奇 have been together for</h2>
+          <h2>赵妍东 和 陈思奇 在一起</h2>
           <div class="timer">
-            <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
+            <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分 <b id="s"></b> 秒
           </div>
           <div class="song">
             <!--页面底部歌词-->
             <!-- require APlayer -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
             <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-            <!-- require MetingJS -->
+            <div id='aplayer'></div>
             <script>
-              var meting_api = 'https://api.injahow.cn/meting?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+              const ap = new APlayer({
+                container: document.getElementById('aplayer'),
+                fixed: true,
+                autoplay: true,
+                lrcType: 3,
+                mutex: true,
+                loop: 'one',
+                audio: [{
+                  name: '\u591c\u7a7a\u4e2d\u6700\u4eae\u7684\u661f',
+                  artist: '\u9003\u8dd1\u8ba1\u5212',
+                  url: '/1.mp3',
+                  cover: '/1.jpg',
+                  lrc: '/1.lrc',
+                  theme: '#eeeeee'
+                }]
+              });
             </script>
-          <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
-            <meting-js server="netease" type="song" id="25706282" fixed="true" autoplay="true" order="list" loop="one">
-            </meting-js>
           </div>
         </div>
 
