@@ -2,7 +2,8 @@
 <!--layout.ejs的意思是共用的布局文件-->
 <!--partial()是个函数，来包含其他文件，使得我们能够更好的组织代码。-->
 <html>
-  <head>
+
+<head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta content="width=device-width,initial-scale=0.7, minimum-scale=0.5, maximum-scale=2.0, user-scalable=0"
     name="viewport" />
@@ -13,145 +14,154 @@
 
 
 
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.3.0"></head>
-  <body>
-    <div class="container">
-      <header class="header">
-  <div class="blog-title">
-    <a href="/" class="logo">qibaobao521</a>
-  </div>
-  <nav class="navbar">
-    <ul class="menu">
-      
-    </ul>
-  </nav>
-</header>
+  <link rel="stylesheet" href="/css/style.css">
 
-      <main class="main">
+  <meta name="generator" content="Hexo 6.3.0">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="blog-title">
+        <a href="/" class="logo">qibaobao521</a>
+      </div>
+      <nav class="navbar">
+        <ul class="menu">
+
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main">
       <section class="date">
-  <div class="date">
-    <h2>
-      赵妍东 和 陈思奇 在一起
-    </h2>
-    <div class="timer">
-      <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分 <b id="s"></b> 秒
-    </div>
+        <div class="date">
+          <h2>
+            赵妍东 和 陈思奇 在一起
+          </h2>
+          <div class="timer">
+            <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分 <b id="s"></b> 秒
+          </div>
 
-    <div class="timer">
-      <b id="acquaint"></b>
-    </div>
-    <div class="timer">
-      <b id="meet"></b>
-    </div>
-    <div class="timer">
-      <b id="love"></b>
-    </div>
-    <div class="timer">
-      <b id="familiarity"></b>
-    </div>
-    <div class="timer">
-      <b id="cherish"></b>
-    </div>
-    <div class="timer">
-      <b id="weding"></b>
-    </div>
-    <div class="song">
-      <!--页面底部歌词-->
-      <!-- require APlayer -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-      <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-      <div id='aplayer'></div>
-      <script>
-        const ap = new APlayer({
-          container: document.getElementById('aplayer'),
-          fixed: true,
-          autoplay: true,
-          lrcType: 3,
-          loop: 'one',
-          audio: [{
-            name: '\u591c\u7a7a\u4e2d\u6700\u4eae\u7684\u661f',
-            artist: '\u9003\u8dd1\u8ba1\u5212',
-            url: './1.mp3',
-            cover: './1.jpg',
-            lrc: '/1.lrc',
-            theme: '#eeeeee'
-          }]
-        });
+          <div class="timer">
+            <b id="acquaint"></b>
+          </div>
+          <div class="timer">
+            <b id="meet"></b>
+          </div>
+          <div class="timer">
+            <b id="love"></b>
+          </div>
+          <div class="timer">
+            <b id="familiarity"></b>
+          </div>
+          <div class="timer">
+            <b id="cherish"></b>
+          </div>
+          <div class="timer">
+            <b id="weding"></b>
+          </div>
+          <div class="song">
+            <!--页面底部歌词-->
+            <!-- require APlayer -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+            <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+            <div id='aplayer'></div>
+            <script>
+              const ap = new APlayer({
+                container: document.getElementById('aplayer'),
+                fixed: true,
+                autoplay: true,
+                lrcType: 3,
+                loop: 'one',
+                audio: [{
+                  name: '\u591c\u7a7a\u4e2d\u6700\u4eae\u7684\u661f',
+                  artist: '\u9003\u8dd1\u8ba1\u5212',
+                  url: './1.mp3',
+                  cover: './1.jpg',
+                  lrc: '/1.lrc',
+                  theme: '#eeeeee'
+                }]
+              });
+            </script>
+          </div>
+        </div>
+
+        <!--计时器js-->
+        <script>
+          function timer() {
+            window.setTimeout("timer()", 1000);
+            var start = new Date("2023/01/20 00:00:00");
+            var t = new Date().getTime() - start;
+            var h = ~~(t / 1000 / 60 / 60 % 24);
+            if (h < 10) { h = "0" + h; }
+            var m = ~~(t / 1000 / 60 % 60);
+            if (m < 10) { m = "0" + m; }
+            var s = ~~(t / 1000 % 60);
+            if (s < 10) { s = "0" + s; }
+            document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+            document.getElementById('h').innerHTML = h;
+            document.getElementById('m').innerHTML = m;
+            document.getElementById('s').innerHTML = s;
+          }
+          timer();
+          function lunisolar_str(date) {
+            const options = { dateStyle: 'long' };
+            return (date.toLocaleDateString("zh-CN", options) + '(' + date.toLocaleDateString("zh-u-ca-chinese", options) + ')');
+          }
+          function lunisolar() {
+            var acquaint = new Date("2023/01/07");
+            var meet = new Date("2023/01/14");
+            var love = new Date("2023/01/20 00:00:00");
+            var familiarity = new Date("2023/02/05");
+            var cherish = new Date("2023/04/15");
+            var agree = new Date("2023/05/20")
+            var betrothal = new Date("")
+            var weding = new Date("");
+
+            if (!isNaN(acquaint.getTime())) {
+              document.getElementById('acquaint').innerHTML = '相识于' + lunisolar_str(acquaint);
+            }
+            if (!isNaN(meet.getTime())) {
+              document.getElementById('meet').innerHTML = ' 相遇于 ' + lunisolar_str(meet);
+            }
+            if (!isNaN(love.getTime())) {
+              document.getElementById('love').innerHTML = '相爱于' + lunisolar_str(love);
+            }
+            if (!isNaN(familiarity.getTime())) {
+              document.getElementById('familiarity').innerHTML = '相知于' + lunisolar_str(familiarity);
+            }
+            if (!isNaN(cherish.getTime())) {
+              document.getElementById('cherish').innerHTML = '相惜于' + lunisolar_str(cherish);
+            }
+            if (!isNaN(agree.getTime())) {
+              document.getElementById('cherish').innerHTML = '相许于' + lunisolar_str(agree);
+            }
+            if (!isNaN(betrothal.getTime())) {
+              document.getElementById('weding').innerHTML = '相守于' + lunisolar_str(betrothal);
+            }
+            if (!isNaN(weding.getTime())) {
+              document.getElementById('weding').innerHTML = '相伴于' + lunisolar_str(weding);
+            }
+
+          }
+          lunisolar();
+        </script>
+        <!--END：计时器js-->
+
+        <!--鼠标点击显示爱心-->
+        <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
+      </section>
+    </main>
+
+
+    <script type="text/javascript" color="177, 122, 125" opacity="2" zIndex="-1" count="200"
+      src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
       </script>
-    </div>
+
+
   </div>
 
-  <!--计时器js-->
-  <script>
-    function timer() {
-      window.setTimeout("timer()", 1000);
-      var start = new Date("2023/01/20 00:00:00");
-      var t = new Date().getTime() - start;
-      var h = ~~(t / 1000 / 60 / 60 % 24);
-      if (h < 10) { h = "0" + h; }
-      var m = ~~(t / 1000 / 60 % 60);
-      if (m < 10) { m = "0" + m; }
-      var s = ~~(t / 1000 % 60);
-      if (s < 10) { s = "0" + s; }
-      document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
-      document.getElementById('h').innerHTML = h;
-      document.getElementById('m').innerHTML = m;
-      document.getElementById('s').innerHTML = s;
-    }
-    timer();
-    function lunisolar_str(date) {
-      const options = { dateStyle: 'long' };
-      return (date.toLocaleDateString("zh-CN", options) + '(' + date.toLocaleDateString("zh-u-ca-chinese", options) + ')');
-    }
-    function lunisolar() {
-      var acquaint = new Date("2023/01/07");
-      var meet = new Date("2023/01/14");
-      var love = new Date("2023/01/20 00:00:00");
-      var familiarity = new Date("2023/02/05");
-      var cherish = new Date("");
-      var weding = new Date("");
+</body>
 
-      if (!isNaN(acquaint.getTime())) {
-        document.getElementById('acquaint').innerHTML = '相识于' + lunisolar_str(acquaint);
-      }
-      if (!isNaN(meet.getTime())) {
-        document.getElementById('meet').innerHTML = ' 相遇于 ' + lunisolar_str(meet);
-      }
-      if (!isNaN(love.getTime())) {
-        document.getElementById('love').innerHTML = '相爱于' + lunisolar_str(love);
-      }
-      if (!isNaN(familiarity.getTime())) {
-        document.getElementById('familiarity').innerHTML = '相知于' + lunisolar_str(familiarity);
-      }
-      if (!isNaN(cherish.getTime())) {
-        document.getElementById('cherish').innerHTML = '相惜于' + lunisolar_str(cherish);
-      }
-      if (!isNaN(weding.getTime())) {
-        document.getElementById('weding').innerHTML = '结婚于' + lunisolar_str(weding);
-      }
-
-    }
-    lunisolar();
-  </script>
-  <!--END：计时器js-->
-
-  <!--鼠标点击显示爱心-->
-  <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/love.js"></script>
-</section>
-      </main>
-
-      
-        <script type="text/javascript" color="177, 122, 125" opacity="2" 
-            zIndex="-1" count="200" 
-            src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
-        </script>
-      
-
-    </div>
-
-  </body>
 </html>
-
