@@ -59,6 +59,12 @@
             <b id="cherish"></b>
           </div>
           <div class="timer">
+            <b id="agree"></b>
+          </div>
+          <div class="timer">
+            <b id="betrothal"></b>
+          </div>
+          <div class="timer">
             <b id="weding"></b>
           </div>
           <div class="song">
@@ -135,10 +141,10 @@
               document.getElementById('cherish').innerHTML = '相惜于' + lunisolar_str(cherish);
             }
             if (!isNaN(agree.getTime())) {
-              document.getElementById('cherish').innerHTML = '相许于' + lunisolar_str(agree);
+              document.getElementById('agree').innerHTML = '相许于' + lunisolar_str(agree);
             }
             if (!isNaN(betrothal.getTime())) {
-              document.getElementById('weding').innerHTML = '相守于' + lunisolar_str(betrothal);
+              document.getElementById('betrothal').innerHTML = '相守于' + lunisolar_str(betrothal);
             }
             if (!isNaN(weding.getTime())) {
               document.getElementById('weding').innerHTML = '相伴于' + lunisolar_str(weding);
