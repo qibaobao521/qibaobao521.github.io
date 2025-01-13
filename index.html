@@ -35,46 +35,48 @@
 
     <main class="main">
       <section class="date">
-        <div class="date">
-          <h2>
-            赵妍东 和 陈思奇 在一起
-          </h2>
-          <div class="timer">
-            <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分 <b id="s"></b> 秒
-          </div>
-          <h2>
-            宝宝出生
-          </h2>
-          <div class="timer">
-            <b id="baby_d"></b> 天 <b id="baby_h"></b> 时 <b id="baby_m"></b> 分 <b id="baby_s"></b> 秒
-          </div>
-          <div style="height:40vh;overflow-y:auto">
+        <div>
+          <div class="date">
+            <h2>
+              赵妍东 和 陈思奇 在一起
+            </h2>
             <div class="timer">
-              <b id="acquaint"></b>
+              <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分 <b id="s"></b> 秒
             </div>
+            <h2>
+              宝宝出生
+            </h2>
             <div class="timer">
-              <b id="meet"></b>
+              <b id="baby_d"></b> 天 <b id="baby_h"></b> 时 <b id="baby_m"></b> 分 <b id="baby_s"></b> 秒
             </div>
-            <div class="timer">
-              <b id="love"></b>
-            </div>
-            <div class="timer">
-              <b id="familiarity"></b>
-            </div>
-            <div class="timer">
-              <b id="cherish"></b>
-            </div>
-            <div class="timer">
-              <b id="agree"></b>
-            </div>
-            <div class="timer">
-              <b id="betrothal"></b>
-            </div>
-            <div class="timer">
-              <b id="weding"></b>
-            </div>
-            <div class="timer">
-              <b id="baby"></b>
+            <div style="height:40vh;overflow-y:auto">
+              <div class="timer">
+                <b id="acquaint"></b>
+              </div>
+              <div class="timer">
+                <b id="meet"></b>
+              </div>
+              <div class="timer">
+                <b id="love"></b>
+              </div>
+              <div class="timer">
+                <b id="familiarity"></b>
+              </div>
+              <div class="timer">
+                <b id="cherish"></b>
+              </div>
+              <div class="timer">
+                <b id="agree"></b>
+              </div>
+              <div class="timer">
+                <b id="betrothal"></b>
+              </div>
+              <div class="timer">
+                <b id="weding"></b>
+              </div>
+              <div class="timer">
+                <b id="baby"></b>
+              </div>
             </div>
           </div>
           <div class="song">
@@ -119,7 +121,7 @@
             document.getElementById('h').innerHTML = h;
             document.getElementById('m').innerHTML = m;
             document.getElementById('s').innerHTML = s;
-            start=new Date("2025/01/10 21:29:00");
+            start = new Date("2025/01/10 21:29:00");
             t = new Date().getTime() - start;
             h = ~~(t / 1000 / 60 / 60 % 24);
             if (h < 10) { h = "0" + h; }
@@ -146,7 +148,7 @@
             var agree = new Date("2023/05/20")
             var betrothal = new Date("2023/08/06")
             var weding = new Date("2023/11/28");
-            var baby=new Date("2025/01/10");
+            var baby = new Date("2025/01/10");
 
             if (!isNaN(acquaint.getTime())) {
               document.getElementById('acquaint').innerHTML = '相识于' + lunisolar_str(acquaint);
